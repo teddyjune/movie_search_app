@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'movie.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Movie {
   final String title;
   final String posterPath;
@@ -15,14 +20,7 @@ class Movie {
     required this.overview,
   });
 
-  factory Movie.fromJson(Map<String, dynamic> json) {
-    return Movie(
-      title: json['original_title'],
-      posterPath: json['poster_path'],
-      releaseDate: json['release_date'],
-      voteCount: json['vote_count'],
-      voteAverage: json['vote_average'],
-      overview: json['overview'],
-    );
-  }
+  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MovieToJson(this);
 }
