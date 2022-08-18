@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_search_app/ui/movie_view_model.dart';
 import 'package:provider/provider.dart';
+
 import '../data/model/movie.dart';
 import 'debounce.dart';
 
@@ -37,7 +38,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
         SizedBox(
           height: 56,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+            padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
