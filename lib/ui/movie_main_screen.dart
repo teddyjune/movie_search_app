@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_search_app/ui/movie_view_model.dart';
 import 'package:provider/provider.dart';
-
 import '../data/model/movie.dart';
+import 'debounce.dart';
 
 class MovieMainScreen extends StatefulWidget {
   const MovieMainScreen({Key? key}) : super(key: key);
@@ -13,6 +13,7 @@ class MovieMainScreen extends StatefulWidget {
 
 class _MovieMainScreenState extends State<MovieMainScreen> {
   final _controller = TextEditingController();
+  final _debounce = Debounce(milliseconds: 500);
 
   @override
   void dispose() {
@@ -32,51 +33,52 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
           '당신이 보고 싶은 영화는?',
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 56,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-              child: TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(
-                        color: Theme.of(context).colorScheme.primary, width: 2),
-                  ),
-                  suffixIcon: GestureDetector(
-                      onTap: () {
-                        viewModel.fetchSearchedMovie(_controller.text);
-                      },
-                      child: const Icon(Icons.search)),
-                  hintText: '영화제목을 입력하세요',
+      body: Column(children: [
+        SizedBox(
+          height: 56,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+            child: TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(
+                      color: Theme.of(context).colorScheme.primary, width: 2),
                 ),
+                suffixIcon: GestureDetector(
+                    onTap: () {
+                      viewModel.fetchSearchedMovie(_controller.text);
+                    },
+                    child: const Icon(Icons.search)),
+                hintText: '영화제목을 입력하세요',
               ),
             ),
           ),
-          Expanded(
-            child: GridView(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              children: viewModel.movies.map((Movie movie) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ClipRRect(
+        ),
+        Expanded(
+          child: GridView.builder(
+            itemCount: viewModel.movies.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              return Column(
+                children: viewModel.movies.map((Movie movie) {
+                  return ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.network(
-                      viewModel.getPoster(movie),
+                      'https://image.tmdb.org/t/p/w500${viewModel.movies[index].posterPath}',
                       fit: BoxFit.cover,
                     ),
-                  ),
-                );
-              }).toList(),
-            ),
+                  );
+                  // Text(viewModel.movies[index].title);
+                }).toList(),
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ]),
     );
   }
 }

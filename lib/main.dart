@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_search_app/ui/movie_main_screen.dart';
 import 'package:movie_search_app/ui/movie_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MovieMainScreen(),
     );
   }
 }

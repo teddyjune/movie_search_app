@@ -10,6 +10,7 @@ class MovieApi {
     http.Response response = await http.get(url);
     Map<String, dynamic> json = jsonDecode(response.body);
     Iterable results = json['results'];
+    print(results);
     return results.map((e) => Movie.fromJson(e)).toList();
   }
 }
