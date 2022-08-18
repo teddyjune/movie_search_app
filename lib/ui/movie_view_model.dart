@@ -11,4 +11,8 @@ class MovieViewModel extends ChangeNotifier {
     movies = await _movieRepository.getSearchedMovies(query);
     notifyListeners();
   }
+
+  String getPoster(Movie movies) {
+    return 'https://image.tmdb.org/t/p/w500${movies.posterPath}';
+  }
 }
