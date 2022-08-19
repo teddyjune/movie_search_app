@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_search_app/ui/movie_view_model.dart';
 import 'package:provider/provider.dart';
 
-import '../data/model/movie.dart';
 import 'debounce.dart';
+import 'movie_detail_screen.dart';
 
 class MovieMainScreen extends StatefulWidget {
   const MovieMainScreen({Key? key}) : super(key: key);
@@ -41,6 +41,8 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: _controller,
+              onChanged: _debounce
+                  .run(() => viewModel.fetchSearchedMovie(_controller.text)),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -62,19 +64,33 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
             itemCount: viewModel.movies.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
+              childAspectRatio: 2 / 3.5,
             ),
             itemBuilder: (BuildContext context, int index) {
               return Column(
-                children: viewModel.movies.map((Movie movie) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      'https://image.tmdb.org/t/p/w500${viewModel.movies[index].posterPath}',
-                      fit: BoxFit.cover,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                MovieDetailScreen(viewModel.movies[index])),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        'https://image.tmdb.org/t/p/w500${viewModel.movies[index].posterPath}',
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  );
-                  // Text(viewModel.movies[index].title);
-                }).toList(),
+                  ),
+                  Text(
+                    viewModel.movies[index].title,
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                ],
               );
             },
           ),

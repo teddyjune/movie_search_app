@@ -4,6 +4,7 @@ part 'movie.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Movie {
+  final String id;
   final String title;
   @JsonKey(name: 'poster_path')
   final String posterPath;
@@ -16,6 +17,7 @@ class Movie {
   final String overview;
 
   Movie({
+    required this.id,
     required this.title,
     required this.posterPath,
     required this.releaseDate,
