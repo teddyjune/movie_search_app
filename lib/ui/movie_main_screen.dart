@@ -49,11 +49,6 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                   borderSide: BorderSide(
                       color: Theme.of(context).colorScheme.primary, width: 2),
                 ),
-                suffixIcon: GestureDetector(
-                    onTap: () {
-                      viewModel.fetchSearchedMovie(_controller.text);
-                    },
-                    child: const Icon(Icons.search)),
                 hintText: '영화제목을 입력하세요',
               ),
             ),
