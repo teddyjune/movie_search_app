@@ -25,6 +25,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<MovieViewModel>();
+    final state = viewModel.state;
 
     return Scaffold(
       appBar: AppBar(
@@ -54,37 +55,40 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
             ),
           ),
         ),
-        Expanded(child: GridView.builder(
-            itemCount: viewModel.movies.length,
+        Expanded(
+          child: GridView.builder(
+            itemCount: state.movies.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 2 / 3.5,
             ),
             itemBuilder: (BuildContext context, int index) {
-              return Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                MovieDetailScreen(viewModel.movies[index])),
-                      );
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.network(
-                        'https://image.tmdb.org/t/p/w500${viewModel.movies[index].posterPath}',
-                        fit: BoxFit.cover,
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  MovieDetailScreen(state.movies[index])),
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    viewModel.movies[index].title,
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                ],
+                    Text(
+                      state.movies[index].title,
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
               );
             },
           ),
