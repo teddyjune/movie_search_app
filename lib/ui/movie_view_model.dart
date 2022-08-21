@@ -7,9 +7,14 @@ class MovieViewModel extends ChangeNotifier {
   final _movieRepository = MovieRepository();
 
   List<Movie> movies = [];
+  bool isLoading = false;
 
   void fetchSearchedMovie(String query) async {
+    isLoading = true;
+    notifyListeners();
+
     movies = await _movieRepository.getSearchedMovies(query);
+    isLoading = false;
     notifyListeners();
   }
 }

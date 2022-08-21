@@ -48,11 +48,17 @@ class MovieDetailScreen extends StatelessWidget {
                       Text(
                         '개봉일 : ${movie.releaseDate}',
                       ),
-                      ElevatedButton(
-                          onPressed: () {}, child: Text('${movie.voteCount}')),
-                      ElevatedButton(
-                          onPressed: () {},
-                          child: Text('${movie.voteAverage}')),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                            onPressed: () {}, child: Text('${movie.voteCount}')),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text('${movie.voteAverage}')),
+                      ),
                     ],
                   ),
                 ),
@@ -61,7 +67,7 @@ class MovieDetailScreen extends StatelessWidget {
             const SizedBox(height: 25),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(movie.overview, style: const TextStyle(fontSize: 15)),
+              child: Text(movie.overview, style: const TextStyle(fontSize: 16)),
             ),
           ],
         ),

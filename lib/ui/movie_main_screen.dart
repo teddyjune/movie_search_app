@@ -54,8 +54,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
             ),
           ),
         ),
-        Expanded(
-          child: GridView.builder(
+        Expanded(child: GridView.builder(
             itemCount: viewModel.movies.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

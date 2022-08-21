@@ -6,7 +6,7 @@ part of 'movie.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
+_$_Movie _$$_MovieFromJson(Map<String, dynamic> json) => _$_Movie(
       title: json['title'] as String,
       posterPath: json['poster_path'] as String,
       releaseDate: json['release_date'] as String,
@@ -15,7 +15,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       overview: json['overview'] as String,
     );
 
-Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
+Map<String, dynamic> _$$_MovieToJson(_$_Movie instance) => <String, dynamic>{
       'title': instance.title,
       'poster_path': instance.posterPath,
       'release_date': instance.releaseDate,
