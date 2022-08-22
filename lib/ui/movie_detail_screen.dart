@@ -50,14 +50,18 @@ class MovieDetailScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                            onPressed: () {}, child: Text('${movie.voteCount}')),
+                        child: ElevatedButton.icon(
+                          icon: const Icon(Icons.check),
+                          label: Text('${movie.voteCount}'),
+                          onPressed: () {},
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
+                        child: ElevatedButton.icon(
+                            icon: const Icon(Icons.star),
                             onPressed: () {},
-                            child: Text('${movie.voteAverage}')),
+                            label: Text('${movie.voteAverage}')),
                       ),
                     ],
                   ),
