@@ -75,11 +75,14 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                                   MovieDetailScreen(state.movies[index])),
                         );
                       },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}',
-                          fit: BoxFit.cover,
+                      child: Hero(
+                        tag: state.movies[index].posterPath,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network(
+                            'https://image.tmdb.org/t/p/w500${state.movies[index].posterPath}',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
