@@ -4,8 +4,10 @@ import 'package:movie_search_app/data/repository/movie_repository.dart';
 import 'package:movie_search_app/ui/main_action.dart';
 import 'package:movie_search_app/ui/main_state.dart';
 
+import '../data/data_source/movie_api_impl.dart';
+
 class MovieViewModel extends ChangeNotifier {
-  final _movieRepository = MovieRepository();
+  final _movieRepository = MovieRepository(MovieApiImpl());
   MainState _state = const MainState();
 
   MainState get state => _state;
