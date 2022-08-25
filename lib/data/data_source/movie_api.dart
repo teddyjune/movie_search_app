@@ -1,19 +1,5 @@
-import 'dart:convert';
+import 'movie_dto.dart';
 
-import 'package:http/http.dart' as http;
-import 'package:movie_search_app/data/model/movie.dart';
-
-class MovieApi {
-  Future<List<Movie>> getSearchedMovies(String query) async {
-    Uri url = Uri.parse(
-        'https://api.themoviedb.org/3/search/movie?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&query=$query');
-    http.Response response = await http.get(url);
-    String jsonString = response.body;
-    Map<String, dynamic> json = jsonDecode(jsonString);
-    if (json['results'] == null) {
-      return List.empty();
-    }
-    Iterable results = json['results'];
-    return results.map((e) => Movie.fromJson(e)).toList();
-  }
+abstract class MovieApi {
+  Future<MovieDto> getSearchedMovies(String query);
 }

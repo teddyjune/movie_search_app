@@ -1,4 +1,4 @@
-import 'package:movie_search_app/data/data_source/movie_api.dart';
+import 'package:movie_search_app/data/data_source/movie_api_impl.dart';
 import 'package:movie_search_app/data/model/movie.dart';
 
 class MovieRepository {
