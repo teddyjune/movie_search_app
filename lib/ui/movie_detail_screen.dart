@@ -13,6 +13,7 @@ class MovieDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: const Text("영화 상세 정보"),
       ),
       body: SingleChildScrollView(
