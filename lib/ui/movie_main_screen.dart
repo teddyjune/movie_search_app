@@ -72,10 +72,72 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                               Container(
                                 height: 500,
                                 decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [
-                                  Colors.black.withOpacity(0.85),
-                                  Colors.black.withOpacity(0),
-                                ], end: Alignment.topCenter)),
+                                    gradient: LinearGradient(
+                                        colors: [
+                                      Colors.black.withOpacity(0.85),
+                                      Colors.black.withOpacity(0),
+                                    ],
+                                        end: Alignment.topCenter,
+                                        begin: Alignment.bottomCenter)),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Column(
+                                children: const [
+                                  Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                    size: 25,
+                                  ),
+                                  SizedBox(height: 5),
+                                  Text(
+                                    "내가 찜한 콘텐츠",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(4)),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 13, left: 8, top: 3, bottom: 3),
+                                  child: Row(
+                                    children: const [
+                                      Icon(Icons.play_arrow,
+                                          color: Colors.black, size: 30),
+                                      SizedBox(width: 5),
+                                      Text(
+                                        "재생",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                children: const [
+                                  Icon(
+                                    Icons.info_outline,
+                                    color: Colors.white,
+                                    size: 25,
+                                  ),
+                                  SizedBox(height: 5),
+                                  Text(
+                                    "정보",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
                               ),
                             ],
                           ),
@@ -123,14 +185,14 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 18),
                               ),
                               const Text(
                                 '영화',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 18),
                               ),
                               Row(
                                 children: const [
@@ -139,7 +201,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 15),
+                                        fontSize: 18),
                                   ),
                                   SizedBox(width: 3),
                                   Icon(Icons.keyboard_arrow_down),
