@@ -32,13 +32,12 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
         backgroundColor: Colors.black,
         elevation: 0,
         centerTitle: true,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
         title: const Text(
           'NETFLIX',
           style: TextStyle(color: Colors.redAccent),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
         ],
       ),
       body: Column(children: [
