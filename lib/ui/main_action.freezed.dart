@@ -18,38 +18,50 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MainAction {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getMovieList,
     required TResult Function(String query) getSearchedMovies,
+    required TResult Function() home,
     required TResult Function(Exception e) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getMovieList,
     TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
     TResult Function(Exception e)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getMovieList,
     TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
     TResult Function(Exception e)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetMovieList value) getMovieList,
     required TResult Function(GetSearchedMovies value) getSearchedMovies,
+    required TResult Function(GetHome value) home,
     required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
     TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
     TResult Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
     TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
@@ -70,6 +82,122 @@ class _$MainActionCopyWithImpl<$Res> implements $MainActionCopyWith<$Res> {
   final MainAction _value;
   // ignore: unused_field
   final $Res Function(MainAction) _then;
+}
+
+/// @nodoc
+abstract class _$$GetMovieListCopyWith<$Res> {
+  factory _$$GetMovieListCopyWith(
+          _$GetMovieList value, $Res Function(_$GetMovieList) then) =
+      __$$GetMovieListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetMovieListCopyWithImpl<$Res> extends _$MainActionCopyWithImpl<$Res>
+    implements _$$GetMovieListCopyWith<$Res> {
+  __$$GetMovieListCopyWithImpl(
+      _$GetMovieList _value, $Res Function(_$GetMovieList) _then)
+      : super(_value, (v) => _then(v as _$GetMovieList));
+
+  @override
+  _$GetMovieList get _value => super._value as _$GetMovieList;
+}
+
+/// @nodoc
+
+class _$GetMovieList implements GetMovieList {
+  const _$GetMovieList();
+
+  @override
+  String toString() {
+    return 'MainAction.getMovieList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetMovieList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getMovieList,
+    required TResult Function(String query) getSearchedMovies,
+    required TResult Function() home,
+    required TResult Function(Exception e) error,
+  }) {
+    return getMovieList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getMovieList,
+    TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
+    TResult Function(Exception e)? error,
+  }) {
+    return getMovieList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getMovieList,
+    TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
+    TResult Function(Exception e)? error,
+    required TResult orElse(),
+  }) {
+    if (getMovieList != null) {
+      return getMovieList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetMovieList value) getMovieList,
+    required TResult Function(GetSearchedMovies value) getSearchedMovies,
+    required TResult Function(GetHome value) home,
+    required TResult Function(Error value) error,
+  }) {
+    return getMovieList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
+    TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
+    TResult Function(Error value)? error,
+  }) {
+    return getMovieList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
+    TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (getMovieList != null) {
+      return getMovieList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetMovieList implements MainAction {
+  const factory GetMovieList() = _$GetMovieList;
 }
 
 /// @nodoc
@@ -137,7 +265,9 @@ class _$GetSearchedMovies implements GetSearchedMovies {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getMovieList,
     required TResult Function(String query) getSearchedMovies,
+    required TResult Function() home,
     required TResult Function(Exception e) error,
   }) {
     return getSearchedMovies(query);
@@ -146,7 +276,9 @@ class _$GetSearchedMovies implements GetSearchedMovies {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getMovieList,
     TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
     TResult Function(Exception e)? error,
   }) {
     return getSearchedMovies?.call(query);
@@ -155,7 +287,9 @@ class _$GetSearchedMovies implements GetSearchedMovies {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getMovieList,
     TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
     TResult Function(Exception e)? error,
     required TResult orElse(),
   }) {
@@ -168,7 +302,9 @@ class _$GetSearchedMovies implements GetSearchedMovies {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetMovieList value) getMovieList,
     required TResult Function(GetSearchedMovies value) getSearchedMovies,
+    required TResult Function(GetHome value) home,
     required TResult Function(Error value) error,
   }) {
     return getSearchedMovies(this);
@@ -177,7 +313,9 @@ class _$GetSearchedMovies implements GetSearchedMovies {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
     TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
     TResult Function(Error value)? error,
   }) {
     return getSearchedMovies?.call(this);
@@ -186,7 +324,9 @@ class _$GetSearchedMovies implements GetSearchedMovies {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
     TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
@@ -204,6 +344,120 @@ abstract class GetSearchedMovies implements MainAction {
   @JsonKey(ignore: true)
   _$$GetSearchedMoviesCopyWith<_$GetSearchedMovies> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetHomeCopyWith<$Res> {
+  factory _$$GetHomeCopyWith(_$GetHome value, $Res Function(_$GetHome) then) =
+      __$$GetHomeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetHomeCopyWithImpl<$Res> extends _$MainActionCopyWithImpl<$Res>
+    implements _$$GetHomeCopyWith<$Res> {
+  __$$GetHomeCopyWithImpl(_$GetHome _value, $Res Function(_$GetHome) _then)
+      : super(_value, (v) => _then(v as _$GetHome));
+
+  @override
+  _$GetHome get _value => super._value as _$GetHome;
+}
+
+/// @nodoc
+
+class _$GetHome implements GetHome {
+  const _$GetHome();
+
+  @override
+  String toString() {
+    return 'MainAction.home()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetHome);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getMovieList,
+    required TResult Function(String query) getSearchedMovies,
+    required TResult Function() home,
+    required TResult Function(Exception e) error,
+  }) {
+    return home();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getMovieList,
+    TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
+    TResult Function(Exception e)? error,
+  }) {
+    return home?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getMovieList,
+    TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
+    TResult Function(Exception e)? error,
+    required TResult orElse(),
+  }) {
+    if (home != null) {
+      return home();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetMovieList value) getMovieList,
+    required TResult Function(GetSearchedMovies value) getSearchedMovies,
+    required TResult Function(GetHome value) home,
+    required TResult Function(Error value) error,
+  }) {
+    return home(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
+    TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
+    TResult Function(Error value)? error,
+  }) {
+    return home?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
+    TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (home != null) {
+      return home(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetHome implements MainAction {
+  const factory GetHome() = _$GetHome;
 }
 
 /// @nodoc
@@ -268,7 +522,9 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getMovieList,
     required TResult Function(String query) getSearchedMovies,
+    required TResult Function() home,
     required TResult Function(Exception e) error,
   }) {
     return error(e);
@@ -277,7 +533,9 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getMovieList,
     TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
     TResult Function(Exception e)? error,
   }) {
     return error?.call(e);
@@ -286,7 +544,9 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getMovieList,
     TResult Function(String query)? getSearchedMovies,
+    TResult Function()? home,
     TResult Function(Exception e)? error,
     required TResult orElse(),
   }) {
@@ -299,7 +559,9 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetMovieList value) getMovieList,
     required TResult Function(GetSearchedMovies value) getSearchedMovies,
+    required TResult Function(GetHome value) home,
     required TResult Function(Error value) error,
   }) {
     return error(this);
@@ -308,7 +570,9 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
     TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
     TResult Function(Error value)? error,
   }) {
     return error?.call(this);
@@ -317,7 +581,9 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetMovieList value)? getMovieList,
     TResult Function(GetSearchedMovies value)? getSearchedMovies,
+    TResult Function(GetHome value)? home,
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'debounce.dart';
 import 'movie_detail_screen.dart';
-import 'movie_view_model.dart';
+import 'movie_main/movie_view_model.dart';
 
 class MovieSearchScreen extends StatefulWidget {
   const MovieSearchScreen({Key? key}) : super(key: key);
@@ -28,6 +28,7 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
     final state = viewModel.state;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,

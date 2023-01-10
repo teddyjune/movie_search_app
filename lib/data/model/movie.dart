@@ -8,10 +8,10 @@ part 'movie.g.dart';
 class Movie with _$Movie {
   const factory Movie({
     required String title,
-    @JsonKey(name: 'poster_path') required String posterPath,
-    @JsonKey(name: 'release_date') required String releaseDate,
-    @JsonKey(name: 'vote_count') required num voteCount,
-    @JsonKey(name: 'vote_average') required num voteAverage,
+    @JsonKey(name: 'poster_path') required String posterPath,//영화포스터
+    @JsonKey(name: 'release_date') required String releaseDate,//개봉일자
+    @JsonKey(name: 'vote_count') required num voteCount,//좋아요 갯수
+    @JsonKey(name: 'vote_average') required num voteAverage,//평균점수
     required String overview,
   }) = _Movie;
 

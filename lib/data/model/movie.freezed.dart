@@ -22,13 +22,13 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
 mixin _$Movie {
   String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
-  String get posterPath => throw _privateConstructorUsedError;
+  String get posterPath => throw _privateConstructorUsedError; //영화포스터
   @JsonKey(name: 'release_date')
-  String get releaseDate => throw _privateConstructorUsedError;
+  String get releaseDate => throw _privateConstructorUsedError; //개봉일자
   @JsonKey(name: 'vote_count')
-  num get voteCount => throw _privateConstructorUsedError;
+  num get voteCount => throw _privateConstructorUsedError; //좋아요 갯수
   @JsonKey(name: 'vote_average')
-  num get voteAverage => throw _privateConstructorUsedError;
+  num get voteAverage => throw _privateConstructorUsedError; //평균점수
   String get overview => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -175,15 +175,19 @@ class _$_Movie implements _Movie {
   @override
   @JsonKey(name: 'poster_path')
   final String posterPath;
+//영화포스터
   @override
   @JsonKey(name: 'release_date')
   final String releaseDate;
+//개봉일자
   @override
   @JsonKey(name: 'vote_count')
   final num voteCount;
+//좋아요 갯수
   @override
   @JsonKey(name: 'vote_average')
   final num voteAverage;
+//평균점수
   @override
   final String overview;
 
@@ -248,16 +252,16 @@ abstract class _Movie implements Movie {
   @override
   @JsonKey(name: 'poster_path')
   String get posterPath;
-  @override
+  @override //영화포스터
   @JsonKey(name: 'release_date')
   String get releaseDate;
-  @override
+  @override //개봉일자
   @JsonKey(name: 'vote_count')
   num get voteCount;
-  @override
+  @override //좋아요 갯수
   @JsonKey(name: 'vote_average')
   num get voteAverage;
-  @override
+  @override //평균점수
   String get overview;
   @override
   @JsonKey(ignore: true)
