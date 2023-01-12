@@ -10,12 +10,19 @@ class MovieRepository {
 
   Future<List<Movie>> getResult() async {
     MovieDto movieDto = await _api.getMovieList();
-    return [];
+
+    return _dtoToMovies(movieDto);
   }
+
   // 검색된 정보를 제목, 포스터, 개봉일, 상세설명을 넣은 리스트로 변환
   Future<List<Movie>> getSearchedMovies(String query) async {
     final movieDto = await _api.getSearchedMovies(query);
 
+    return _dtoToMovies(movieDto);
+  }
+
+  //반복되는 부분을 extract
+  List<Movie> _dtoToMovies(MovieDto movieDto) {
     if ((movieDto.results?.length ?? 0) == 0) {
       return []; //검색결과가 없으면 null 반환
     }
@@ -30,5 +37,4 @@ class MovieRepository {
             ))
         .toList();
   }
-
 }
