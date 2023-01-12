@@ -14,9 +14,10 @@ class MovieMainScreen extends StatefulWidget {
 }
 
 class _MovieMainScreenState extends State<MovieMainScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 0; //BottomNavigationBar 버튼 활성화시 색깔 변화할 때 사용할 변수
 
   void _onItemTapped(int index) {
+    //아이템이 선택되면 색깔 변화해서 화면갱신
     setState(() {
       _selectedIndex = index;
     });
@@ -24,9 +25,9 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<MovieViewModel>();
+    final viewModel = context.watch<MovieViewModel>(); // Provider로 상태관리 코드
     final state = viewModel.state;
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size; //기기의 화면크기에 맞춘다.
 
     return DefaultTabController(
       length: 3,
@@ -63,15 +64,18 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                     children: [
                       Stack(
                         children: [
+                          // 메인화면에 띄울 이미지, 화면 절반 차지.
                           Image.asset(
                             "assets/game.png",
                             width: double.infinity,
                             height: 500,
                             fit: BoxFit.cover,
                           ),
+
                           Container(
                             height: 500,
                             decoration: BoxDecoration(
+                                // 메인 이미지의 절반을 가운데부터 서서히 검게 반투명으로 처리
                                 gradient: LinearGradient(
                                     colors: [
                                   Colors.black.withOpacity(0.85),
@@ -102,12 +106,14 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
+                              // 재생 버튼을 누르면 재생화면으로 이동
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => VideoDetailScreen()),
                               );
                             },
+                            // 흰 재생버튼 구현
                             child: Container(
                               decoration: BoxDecoration(
                                   color: Colors.white,
@@ -149,15 +155,20 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                         ],
                       ),
                       const SizedBox(height: 40),
-                      Column(
-                        children: [
-                          MovieList(
-                              movieList: viewModel.movieList,
-                              filterTitle: "상영 중인 영화"),
-                          MovieList(
-                              movieList: viewModel.sortedMovieByReleaseDate,
-                              filterTitle: "최신 등록 콘텐츠"),
-                        ],
+                      SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            MovieList(
+                                movieList: viewModel.movieList,
+                                filterTitle: "상영 중인 영화"),
+                            MovieList(
+                                movieList: (viewModel.sortedMovieByReleaseDate
+                                      ..sort((b, a) => a.releaseDate
+                                          .compareTo(b.releaseDate)))
+                                    .toList(), //개봉일 순서로 정렬해서 리스트로 만듦.
+                                filterTitle: "최신 등록 콘텐츠"),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -167,6 +178,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                 child: Column(
                   children: [
                     Row(
+                      // appBar 대신 로고, 검색아이콘, 프로필 이미지 보여줌
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset("assets/logo.png",

@@ -15,8 +15,13 @@ class MovieViewModel extends ChangeNotifier {
   List<Movie> sortedMovieByReleaseDate = [];
 
   MovieViewModel() {
-    getList();
-    getSortedListByReleaseDate();
+    init();
+  }
+
+  // 순서대로 실행되도록 새로운 함수를 만들어줌.
+  Future init() async {
+    await getList();
+    await getSortedListByReleaseDate();
   }
 
   void onAction(MainAction action) {
@@ -50,9 +55,13 @@ class MovieViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future getSortedListByReleaseDate() async {
-    sortedMovieByReleaseDate =
-        await _movieRepository.getSortedResultByReleaseDate();
+  Future<void> getSortedListByReleaseDate() async {
+    //모든 영화 정보
+    sortedMovieByReleaseDate = await _movieRepository.getResult();
+
+    // 개봉일 순서로 정렬
+    sortedMovieByReleaseDate
+        .sort((b, a) => a.releaseDate.compareTo(b.releaseDate));
     notifyListeners();
   }
 }

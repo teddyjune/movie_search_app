@@ -35,7 +35,8 @@ class MovieList extends StatelessWidget {
                   height: 160,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(movieList[index].posterPath),
+                          image: NetworkImage(
+                              'https://image.tmdb.org/t/p/w500${movieList[index].posterPath}'),
                           fit: BoxFit.cover),
                       borderRadius: BorderRadius.circular(6)),
                 );

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
-
+// 검색할 때 한 글자만 쳐도 그걸 인식하고 검색한다
 class Debounce {
   final int milliseconds;
   Timer? _timer;

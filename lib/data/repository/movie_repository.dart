@@ -30,10 +30,5 @@ class MovieRepository {
             ))
         .toList();
   }
-  // 개봉일자 순서로 정렬
-  Future<List<Movie>> getSortedResultByReleaseDate() async {
-    final movies = await getResult();
-    movies.sort((b, a) => a.releaseDate.compareTo(b.releaseDate));
-    return movies;
-  }
+
 }
