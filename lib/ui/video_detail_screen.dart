@@ -238,6 +238,25 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 10),
+                Text(
+                  "뿅뿅 지구오락실 1화 : 아찔한 첫 만남",
+                  style: TextStyle(
+                      height: 1.4,
+                      fontSize: 22,
+                      color: Colors.white.withOpacity(0.9)),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "이영지는 촬영이 아니라 그냥 미팅인 줄 알고 민낯으로 나타났고 이은지는 영지와 초면임에도 텐션 높은 모습을 보여줬다. 이후 미미와 안유진이 도착하자 그야말로 축제 분위기. 안유진이 등장했을 때는 이은지와 미미가 냅다 러브 다이브를 추기도",
+                  style: TextStyle(
+                      height: 1.4,
+                      fontSize: 13,
+                      color: Colors.white.withOpacity(0.9)),
+                ),
+                Row(
+
+                ),
               ],
             ),
           ],
