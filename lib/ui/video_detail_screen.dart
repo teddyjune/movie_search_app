@@ -118,6 +118,7 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
             ),
             const SizedBox(height: 10),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "뿅뿅 지구오락실",
@@ -126,7 +127,7 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                       fontSize: 25,
                       color: Colors.white.withOpacity(0.9)),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 const SizedBox(width: 20),
                 Row(
                   children: [
@@ -183,6 +184,59 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                       ),
                     ),
                   ],
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  "Watch Season 1 Now",
+                  style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  width: size.width,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.play_arrow, color: Colors.black),
+                      SizedBox(width: 5),
+                      Text(
+                        "이어서 재생",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  width: size.width,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.file_download, color: Colors.white),
+                      SizedBox(width: 5),
+                      Text(
+                        "저장",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
