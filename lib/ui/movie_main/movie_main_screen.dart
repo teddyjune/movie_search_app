@@ -110,7 +110,9 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => VideoDetailScreen()),
+                                    builder: (context) =>
+                                        const VideoDetailScreen(
+                                            videoUrl: "assets/video_1.mp4")),
                               );
                             },
                             // 흰 재생버튼 구현

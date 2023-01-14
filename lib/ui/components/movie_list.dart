@@ -35,6 +35,7 @@ class MovieList extends StatelessWidget {
                   height: 160,
                   decoration: BoxDecoration(
                       image: DecorationImage(
+                          // 포스터가 나오는 url을 앞에 적어줌.
                           image: NetworkImage(
                               'https://image.tmdb.org/t/p/w500${movieList[index].posterPath}'),
                           fit: BoxFit.cover),
