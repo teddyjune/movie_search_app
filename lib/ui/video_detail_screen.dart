@@ -44,7 +44,7 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MovieMainScreen()),
+              MaterialPageRoute(builder: (context) => const MovieMainScreen()),
             );
           },
         ),
@@ -75,6 +75,114 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                       });
                     },
                   ),
+                ),
+                Positioned(
+                    left: 7,
+                    bottom: 10,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 13, right: 13, top: 5, bottom: 5),
+                        child: Row(
+                          children: const [
+                            Text(
+                              "미리보기",
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    )),
+                Positioned(
+                    right: 5,
+                    bottom: 10,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 8, right: 8, top: 5, bottom: 5),
+                        child: Row(
+                          children: const [
+                            Icon(Icons.volume_mute, color: Colors.white),
+                          ],
+                        ),
+                      ),
+                    )),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Column(
+              children: [
+                Text(
+                  "뿅뿅 지구오락실",
+                  style: TextStyle(
+                      height: 1.4,
+                      fontSize: 25,
+                      color: Colors.white.withOpacity(0.9)),
+                ),
+                const SizedBox(height: 20),
+                const SizedBox(width: 20),
+                Row(
+                  children: [
+                    const SizedBox(width: 20),
+                    const Text(
+                      "New",
+                      style: TextStyle(
+                          height: 1.4, fontSize: 15, color: Colors.green),
+                    ),
+                    const SizedBox(width: 20),
+                    Text(
+                      "2022",
+                      style: TextStyle(
+                          height: 1.4,
+                          fontSize: 15,
+                          color: Colors.white.withOpacity(0.5)),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2),
+                        color: Colors.white.withOpacity(0.2),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.only(
+                            left: 6, right: 6, top: 4, bottom: 4),
+                        child: Text(
+                          "18+",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Text(
+                      "시즌 1",
+                      style: TextStyle(
+                          height: 1.4,
+                          fontSize: 15,
+                          color: Colors.white.withOpacity(0.5)),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(2),
+                          border:
+                              Border.all(color: Colors.white.withOpacity(0.2))),
+                      child: const Padding(
+                        padding: EdgeInsets.only(
+                            left: 6, right: 6, top: 4, bottom: 4),
+                        child: Text(
+                          "HD",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
